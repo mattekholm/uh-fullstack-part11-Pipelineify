@@ -1,0 +1,23 @@
+POST https://uh-phonebook.fly.dev/api/persons/
+Content-Type: application/json
+
+{
+    "name": "Alice",
+    "number": "555-1234"
+}
+
+###
+POST https://uh-phonebook.fly.dev/api/persons/
+Content-Type: application/json
+
+{
+    "number": "555-1234"
+}
+
+###
+POST https://uh-phonebook.fly.dev/api/persons/
+Content-Type: application/json
+
+{
+    "name": "bob"
+}
