@@ -1,0 +1,38 @@
+name: UH-Phonebook CI/CD
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+    types:
+      - opened
+      - synchronize
+      - reopened
+
+jobs:
+    build_lint_test:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v4
+            
+            - name: Set up Node.js
+              uses: actions/setup-node@v4
+              with:
+                node-version: '20'
+            
+            - name: Install and lint frontend
+              run: |
+                cd frontend
+                npm install
+                npm run lint
+
+            - name: Install and lint backend
+              run: |
+                cd backend
+                npm install
+                npm run lint
+
