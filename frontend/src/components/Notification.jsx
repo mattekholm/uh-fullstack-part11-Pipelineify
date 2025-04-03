@@ -1,10 +1,10 @@
-const Notification = ({message}) => {
+const Notification = ({ message }) => {
   const divStyle = {
-    background: '#62d305', 
+    background: '#62d305',
     margin: '20px',
     padding: '5px 20px',
     maxWidth: '300px',
-    borderRadius: '8px' 
+    borderRadius: '8px'
   }
 
   const pStyle = {
@@ -17,7 +17,7 @@ const Notification = ({message}) => {
   if (message === null) {
     return null
   }
-  
+
   return (
     <div style={divStyle}>
       <p style={pStyle}>{message}</p>

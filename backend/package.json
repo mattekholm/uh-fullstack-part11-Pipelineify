@@ -15,11 +15,13 @@
   "author": "Mats Holmberg",
   "license": "GPL-3.0",
   "devDependencies": {
+    "@eslint/js": "^9.23.0",
     "@flydotio/dockerfile": "^0.5.2",
-    "@stylistic/eslint-plugin-js": "^1.6.2",
-    "eslint": "^8.56.0",
+    "@stylistic/eslint-plugin-js": "^1.8.1",
+    "eslint": "^8.57.1",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.29.1",
+    "globals": "^16.0.0",
     "nodemon": "^3.0.3"
   },
   "dependencies": {
