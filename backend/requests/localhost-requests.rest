@@ -1,0 +1,62 @@
+GET http://localhost:3001/api/contacts/
+
+###
+GET http://localhost:3001/info/
+
+###
+GET http://localhost:3001/api/contacts/65ce6edfe03dabe86ead6b89
+
+###
+POST http://localhost:3001/api/contacts/
+Content-Type: application/json
+
+{
+    "name": "Localhost",
+    "number": "3001"
+}
+
+###
+POST http://localhost:3001/api/contacts/
+Content-Type: application/json
+
+{
+    "name": "ab",
+    "number": "3001"
+}
+
+###
+POST http://localhost:3001/api/contacts/
+Content-Type: application/json
+
+{
+    "number": "555-1234"
+}
+
+###
+POST http://localhost:3001/api/contacts/
+Content-Type: application/json
+
+{
+    "name": "bob"
+}
+
+###
+DELETE http://localhost:3001/api/contacts/65cf785e5df2a86eece3a0d9
+
+###
+PUT http://localhost:3001/api/contacts/65ce6edfe03dabe86ead6b89
+Content-Type: application/json
+
+{
+    "name": "Alice",
+    "number": "555-1111"
+}
+
+###
+PUT http://localhost:3001/api/contacts/65ce6edfe03dabe86ead6b89
+Content-Type: application/json
+
+{
+    "name": "Alice",
+    "number": "123"
+}
