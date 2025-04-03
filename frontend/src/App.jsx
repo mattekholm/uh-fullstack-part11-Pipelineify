@@ -7,7 +7,7 @@ import Notification from './components/Notification'
 
 
 const App = () =>  {
-  const [persons, setPersons] = useState([])  
+  const [persons, setPersons] = useState([])
   const [newName, setNewName] = useState('')
   const [newPhone, setNewPhone] = useState('')
   const [showAll, setShowAll] = useState(true)
@@ -25,7 +25,7 @@ const App = () =>  {
 
   // Update name input field on change
   const handleNameInputChange = (event) => {
-    setNewName(event.target.value)    
+    setNewName(event.target.value)
   }
 
   // Update phone input field on change
@@ -48,12 +48,12 @@ const App = () =>  {
   // Handle 'Add' click by either creating new contact or updating existing
   const handleAddButton = (event) => {
     event.preventDefault()
-    const existingPerson = persons.find(person => person.name.toLowerCase() === newName.toLowerCase())    
+    const existingPerson = persons.find(person => person.name.toLowerCase() === newName.toLowerCase())
     existingPerson ? updateContact(existingPerson.id) : addContact()
   }
 
 
-  // Update existing contact 
+  // Update existing contact
   const updateContact = (id) => {
     const personObject = {
       name: newName,
@@ -69,13 +69,13 @@ const App = () =>  {
         setNotification('Updated contact')
         setTimeout(() => {
           setNotification(null)
-        }, 3000);
+        }, 3000)
       })
       .catch(error => {
         setNotification(error.response.data.error)
         setTimeout(() => {
           setNotification(null)
-        }, 5000);
+        }, 5000)
       })
   }
 
@@ -97,13 +97,13 @@ const App = () =>  {
         setNotification(`${returnedPerson.name} was added to Contacts`)
         setTimeout(() => {
           setNotification(null)
-        }, 3000);
+        }, 3000)
       })
       .catch(error => {
         setNotification(error.response.data.error)
         setTimeout(() => {
           setNotification(null)
-        }, 5000);
+        }, 5000)
       })
   }
 
@@ -117,13 +117,13 @@ const App = () =>  {
           setPersons((origPersons) => {
             return origPersons.filter(p => p.id !== id)
           })
-          setNotification(`Contact ${personToDelete.name} deleted successfully.`);
+          setNotification(`Contact ${personToDelete.name} deleted successfully.`)
           setTimeout(() => {
-            setNotification(null);
-          }, 3000);
+            setNotification(null)
+          }, 3000)
         })
         .catch(error => {
-          console.log(`An unexpected error happened: ${error}`);
+          console.log(`An unexpected error happened: ${error}`)
         })
     }
   }
@@ -131,30 +131,30 @@ const App = () =>  {
   return (
     <div>
       <h1>PHONEBOOK</h1>
-      
+
       <hr />
-      
+
       <h2>add a new contact</h2>
       <Notification message={notification}/>
-      <ContactForm 
+      <ContactForm
         onSubmit={handleAddButton}
         newName={newName}
         handleNameInputChange={handleNameInputChange}
         newPhone={newPhone}
         handlePhoneInputChange={handlePhoneInputChange}
-        />
+      />
 
       <hr />
 
-      <h2>contacts</h2>      
+      <h2>contacts</h2>
       <Filter handleFilterChange={handleFilterChange}/>
 
       <br />
 
-      <ContactList 
-        personList={contactsToShow} 
+      <ContactList
+        personList={contactsToShow}
         onDeleteContact={deleteContact}
-        />
+      />
 
     </div>
   )

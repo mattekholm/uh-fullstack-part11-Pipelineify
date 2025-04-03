@@ -1,4 +1,4 @@
-const Button = ({label, onClick}) => {
+const Button = ({ label, onClick }) => {
   return (
     <button onClick={onClick}>{label}</button>
   )

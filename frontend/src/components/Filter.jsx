@@ -1,4 +1,4 @@
-const Filter = ({handleFilterChange}) => {
+const Filter = ({ handleFilterChange }) => {
   return (
     <div>
       <p>Filter on name: <input onChange={handleFilterChange} /></p>
