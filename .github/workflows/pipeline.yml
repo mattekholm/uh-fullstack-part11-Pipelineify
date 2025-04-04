@@ -52,49 +52,49 @@ jobs:
                 cd frontend
                 npm run test
 
-    # playwright_test:
-    #     name: Playwright Tests
-    #     runs-on: ubuntu-latest
-    #     timeout-minutes: 3
-    #     env:
-    #         PORT: 3001
-    #         MONGODB_URI: ${{ secrets.MONGODB_URI }}
-    #     if: ${{ github.event_name == 'pull_request' && !contains(github.event.head_commit.message, '#skip-e2e') }}  # Skip if commit message contains #skip-e2e
-    #     steps:
-    #       - uses: actions/checkout@v4
-    #       - uses: actions/setup-node@v4
-    #         with:
-    #           node-version: '20'
+    playwright_test:
+        name: Playwright Tests
+        runs-on: ubuntu-latest
+        timeout-minutes: 3
+        env:
+            PORT: 3001
+            MONGODB_URI: ${{ secrets.MONGODB_URI }}
+        if: ${{ github.event_name == 'pull_request' && !contains(github.event.head_commit.message, '#skip-e2e') }}  # Skip if commit message contains #skip-e2e
+        steps:
+          - uses: actions/checkout@v4
+          - uses: actions/setup-node@v4
+            with:
+              node-version: '20'
 
-    #       - name: Install dependencies (frontend & backend)
-    #         run: |
-    #           cd frontend
-    #           npm install
-    #           cd ../backend
-    #           npm install
+          - name: Install dependencies (frontend & backend)
+            run: |
+              cd frontend
+              npm install
+              cd ../backend
+              npm install
 
-    #       - name: Install dependecies (Playwright)
-    #         run: npm ci
+          - name: Install dependecies (Playwright)
+            run: npm ci
             
-    #       - name: Install Playwright Browsers
-    #         run: npx playwright install --with-deps
+          - name: Install Playwright Browsers
+            run: npx playwright install --with-deps
           
-    #       - name: Run Playwright tests
-    #         run: npx playwright test
+          - name: Run Playwright tests
+            run: npx playwright test
 
-    #       - uses: actions/upload-artifact@v4
-    #         if: ${{ !cancelled() }}
-    #         with:
-    #           name: playwright-report
-    #           path: playwright-report/
-    #           retention-days: 30
+          - uses: actions/upload-artifact@v4
+            if: ${{ !cancelled() }}
+            with:
+              name: playwright-report
+              path: playwright-report/
+              retention-days: 30
 
     tag_releases:
       name: Tag Releases
       runs-on: ubuntu-latest
       permissions:
         contents: write
-      needs: [build_lint_test]
+      needs: [build_lint_test, playwright_test]
       if: ${{ github.event_name == 'push' && !contains(github.event.head_commit.message, '#skip') }}
       steps:
         - uses: actions/checkout@v4
