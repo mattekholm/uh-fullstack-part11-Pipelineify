@@ -68,10 +68,9 @@ jobs:
               cd ../backend
               npm ci
 
-          - name: Install dependencies (Playwright)
-            run: |
-              cd frontend
-              npm ci
+          - name: Install Playwright
+            run: npm install @playwright/test --save-dev
+            
 
           - name: Install Playwright Browsers
             run: npx playwright install --with-deps
