@@ -54,7 +54,8 @@ jobs:
 
     playwright_test:
         name: Playwright Tests
-        runs-on: ubuntu-latest
+        runs-on: ubuntu-latestä
+        needs: build_lint_test
         timeout-minutes: 3
         if: ${{ github.event_name == 'pull_request' && !contains(github.event.head_commit.message, '#skip-e2e') }}  # Skip if commit message contains #skip-e2e
         steps:
@@ -63,23 +64,24 @@ jobs:
             with:
               node-version: '20'
 
-          - name: Install dependencies (frontend & backend)
-            run: |
-              cd frontend
-              npm install
-              cd ../backend
-              npm install
-
-
           - name: Install dependecy Playwright
             run: npm ci
             
           - name: Install Playwright Browsers
             run: npx playwright install --with-deps
+
+          - name: Install dependencies (frontend & backend) and build frontend
+            run: |
+              cd frontend
+              npm install
+              cd ../backend
+              npm install
+              npm run build:ui
+              npm run start
           
           - name: Run Playwright tests
-            run: DEBUG=pw:api npx playwright test --verbose
-          
+            run: npx playwright test
+
           - uses: actions/upload-artifact@v4
             if: ${{ !cancelled() }}
             with:
