@@ -72,8 +72,8 @@ jobs:
               npm install
               cd ../backend
               npm install
-              npm run build:ui
-              npm run start
+              # npm run build:ui
+              # npm run start
 
           - name: Install dependecy Playwright
             run: npm ci
