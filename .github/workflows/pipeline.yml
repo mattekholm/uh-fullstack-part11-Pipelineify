@@ -36,8 +36,13 @@ jobs:
                 npm install
                 npm run lint
 
-            - name: Run tests
+            - name: Run backend tests
               run: |
                 cd ../backend
+                npm run test
+
+            - name: Run frontend tests
+              run: |
+                cd ../frontend
                 npm run test
 
