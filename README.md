@@ -51,6 +51,12 @@ npm run dev         # start project
 
 `npm run logs:prod`: outputs Fly.io runtime log
 
+### Testing
+
+**NOTE** This project only uses dummy tests, for the purpose of running tests in CI. The tests do **NOT** test the actual code!
+
+`npm run test`
+
 ---
 
 &copy; 2025, Mats Holmberg

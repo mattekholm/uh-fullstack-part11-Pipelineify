@@ -24,15 +24,29 @@ jobs:
               with:
                 node-version: '20'
             
-            - name: Install and lint frontend
+            - name: Install dependencies (frontend & backend)
               run: |
                 cd frontend
                 npm install
-                npm run lint
+                cd ../backend
+                npm install
 
-            - name: Install and lint backend
+            - name: Lint frontend
+              run: |
+                cd frontend
+                npm run lint
+    
+            - name: Lint backend
               run: |
                 cd backend
-                npm install
                 npm run lint
-
+    
+            - name: Run backend tests
+              run: |
+                cd backend
+                npm run test
+    
+            - name: Run frontend tests
+              run: |
+                cd frontend
+                npm run test
