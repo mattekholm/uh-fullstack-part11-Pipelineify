@@ -60,18 +60,19 @@ jobs:
         steps:
           - uses: actions/checkout@v4
           - uses: actions/setup-node@v4
+            with:
+              node-version: '20'
 
           - name: Install dependencies (frontend & backend)
             run: |
               cd frontend
-              npm ci
+              npm install
               cd ../backend
-              npm ci
+              npm install
 
-          - name: Install Playwright
-            run: npm install @playwright/test --save-dev
+          - name: Install dependecy Playwright
+            run: npm ci
             
-
           - name: Install Playwright Browsers
             run: npx playwright install --with-deps
           

@@ -75,7 +75,7 @@ export default defineConfig({
   webServer: {
     command: 'npm --prefix backend run build:ui && npm --prefix backend run start',
     url: 'http://127.0.0.1:3001',
-    timeout: 10000,
+    timeout: 20000,
     reuseExistingServer: !process.env.CI,
   },
 });
