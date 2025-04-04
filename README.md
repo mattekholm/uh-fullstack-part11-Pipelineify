@@ -53,9 +53,25 @@ npm run dev         # start project
 
 ### Testing
 
-**NOTE** This project only uses dummy tests, for the purpose of running tests in CI. The tests do **NOT** test the actual code!
+#### Unit & Component Tests
+
+**NOTE** This project only uses dummy unit tests for the backend, for the purpose of running tests in CI. There is only one frontend component test.  **Do NOT rely on the tests for ensuring functionality!**
+
+Backend unit test and frontend component test can be run from respective folder with:
 
 `npm run test`
+
+#### End-2-End Tests
+
+This project uses Playwright for end-2-end testing. There is only one test, which verifies that the website header is visible.
+
+To execute the E2E tests, the frontend first needs to be built and copied into the backend, then the backend needs to be started, then run the tests:
+
+```bash
+npm run build:ui    # run from 'backend' folder
+npm run dev         # run from 'backend' folder
+npm run test-e2e    # run from root folder
+```
 
 ---
 
