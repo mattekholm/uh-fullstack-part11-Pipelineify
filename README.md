@@ -65,11 +65,9 @@ Backend unit test and frontend component test can be run from respective folder 
 
 This project uses Playwright for end-2-end testing. There is only one test, which verifies that the website header is visible.
 
-To execute the E2E tests, the frontend first needs to be built and copied into the backend, then the backend needs to be started, then run the tests:
+Playwright's configuration (`playwright.config.js`) ensures that the frontend is rebuilt and started through the backend. Simply run the e2e tests with:
 
 ```bash
-npm run build:ui    # run from 'backend' folder
-npm run dev         # run from 'backend' folder
 npm run test-e2e    # run from root folder
 ```
 
