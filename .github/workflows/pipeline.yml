@@ -63,12 +63,6 @@ jobs:
             with:
               node-version: '20'
 
-          - name: Install dependecy Playwright
-            run: npm ci
-            
-          - name: Install Playwright Browsers
-            run: npx playwright install --with-deps
-
           - name: Install dependencies (frontend & backend) and build frontend
             run: |
               cd frontend
@@ -77,6 +71,12 @@ jobs:
               npm install
               npm run build:ui
               npm run start
+
+          - name: Install dependecy Playwright
+            run: npm ci
+            
+          - name: Install Playwright Browsers
+            run: npx playwright install --with-deps
           
           - name: Run Playwright tests
             run: npx playwright test
