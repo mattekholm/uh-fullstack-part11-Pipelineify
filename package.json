@@ -1,0 +1,24 @@
+{
+  "name": "uh-fullstack-part11-pipelineify",
+  "version": "1.0.0",
+  "description": "University of Helsinki Fullstack Open, [part 11 - \"CI/CD\", exercises 11.20-21](https://fullstackopen.com/en/part11/expanding_further#exercises-11-19-11-21): refactor old code and implement a CI/CD pipeline with Github Actions.",
+  "main": "index.js",
+  "scripts": {
+    "test-e2e": "playwright test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mattekholm/uh-fullstack-part11-Pipelineify.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mattekholm/uh-fullstack-part11-Pipelineify/issues"
+  },
+  "homepage": "https://github.com/mattekholm/uh-fullstack-part11-Pipelineify#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.51.1",
+    "@types/node": "^22.14.0"
+  }
+}
