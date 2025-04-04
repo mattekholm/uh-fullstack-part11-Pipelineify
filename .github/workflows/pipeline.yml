@@ -36,3 +36,8 @@ jobs:
                 npm install
                 npm run lint
 
+            - name: Run tests
+              run: |
+                cd ../backend
+                npm run test
+
