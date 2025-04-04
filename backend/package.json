@@ -31,5 +31,8 @@
     "express": "^4.19.2",
     "mongoose": "^8.1.2",
     "morgan": "^1.10.0"
+  },
+  "test": {
+    "include": ["tests/*.test.js"]
   }
 }
