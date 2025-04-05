@@ -73,4 +73,6 @@ npm run test-e2e    # run from root folder
 
 ---
 
-&copy; 2025, Mats Holmberg
+Project completed and submitted for final review: 2025-04-05
+
+*&copy; 2025, Mats Holmberg*
