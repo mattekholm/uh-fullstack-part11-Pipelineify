@@ -54,6 +54,7 @@ jobs:
 
     playwright_test:
         name: Playwright Tests
+        if: ${{ github.event_name == 'pull_request' }}    # Only run on PRs
         runs-on: ubuntu-latest
         timeout-minutes: 5
         env:
@@ -93,7 +94,7 @@ jobs:
       runs-on: ubuntu-latest
       permissions:
         contents: write
-      needs: [build_lint_test, playwright_test]
+      needs: build_lint_test
       if: ${{ github.event_name == 'push' && !contains(github.event.head_commit.message, '#skip') }}
       steps:
         - uses: actions/checkout@v4
@@ -109,7 +110,7 @@ jobs:
     deploy:
       name: Deploy to Fly.io
       runs-on: ubuntu-latest
-      needs: [build_lint_test, playwright_test, tag_releases]
+      needs: [build_lint_test, tag_releases]
       concurrency: deploy-group # Prevents multiple deployments at the same time
       if: ${{ github.event_name == 'push' }}
       steps:
