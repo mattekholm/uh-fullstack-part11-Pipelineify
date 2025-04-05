@@ -34,6 +34,10 @@ FROM base
 # Copy built application
 COPY --from=build /app /app
 
+# Check if dist folder exists
+RUN echo "Contents of /app:" && ls -la /app && echo "Contents of dist:" && ls -la /app/dist
+
+
 # Start the server by default, this can be overwritten at runtime
 EXPOSE 3000
 CMD [ "npm", "run", "start" ]
