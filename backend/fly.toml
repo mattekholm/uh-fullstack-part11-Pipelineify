@@ -8,9 +8,6 @@ primary_region = 'arn'
 
 [build]
 
-[processes]
-  app = "node app.js"
-
 [env]
   PORT = "3000"
 
