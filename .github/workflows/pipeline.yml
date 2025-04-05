@@ -106,6 +106,7 @@ jobs:
             DEFAULT_BUMP: 'patch'
             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
             DRY_RUN: false
+            WITH_V: true
 
     deploy:
       name: Deploy to Fly.io
