@@ -12,6 +12,8 @@ app.use(morgan('tiny'))
 
 
 app.get('/api/contacts', (request, response) => {
+  console.log(
+  
   Contact
     .find({})
     .then(contacts => {
