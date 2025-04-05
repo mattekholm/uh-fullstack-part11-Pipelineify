@@ -59,7 +59,6 @@ jobs:
         env:
             PORT: 3001
             MONGODB_URI: ${{ secrets.MONGODB_URI }}
-        if: ${{ github.event_name == 'pull_request' && !contains(github.event.head_commit.message, '#skip-e2e') }}  # Skip if commit message contains #skip-e2e
         steps:
           - uses: actions/checkout@v4
           - uses: actions/setup-node@v4
