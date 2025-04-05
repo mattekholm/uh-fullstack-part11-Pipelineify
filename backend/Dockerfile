@@ -35,7 +35,7 @@ FROM base
 COPY --from=build /app /app
 
 # Check if dist folder exists
-RUN echo "Contents of /app:" && ls -la /app && echo "Contents of dist:" && ls -la /app/dist
+RUN echo "Contents of /app:" && ls -la /app
 
 
 # Start the server by default, this can be overwritten at runtime
