@@ -18,7 +18,7 @@
   },
   "homepage": "https://github.com/mattekholm/uh-fullstack-part11-Pipelineify#readme",
   "devDependencies": {
-    "@playwright/test": "^1.51.1",
+    "@playwright/test": "^1.56.1",
     "@types/node": "^22.14.0"
   }
 }
